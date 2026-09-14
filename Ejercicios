@@ -1,0 +1,208 @@
+import java.util.Scanner;
+
+public class Ejercicios {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int op;
+        do {
+            System.out.println("\n--- MENU DE EJERCICIOS ---");
+            System.out.println("1. Saludo");
+            System.out.println("2. Area y perimetro rectangulo");
+            System.out.println("3. Hipotenusa");
+            System.out.println("4. Operaciones matematicas");
+            System.out.println("5. Fahrenheit a Celsius");
+            System.out.println("6. Media de tres numeros");
+            System.out.println("7. Minutos a horas");
+            System.out.println("8. Sueldo y comision");
+            System.out.println("9. Descuento compra");
+            System.out.println("10. Calificacion final");
+            System.out.println("0. Salir");
+            System.out.print("Elige una opcion: ");
+            op = sc.nextInt();
+            sc.nextLine(); // limpiar buffer
+
+            switch (op) {
+            //switch (op) sirve para evaluar una variable (en este caso, op, que suele significar "opción" u "operación") y ejecutar diferentes bloques de código según el valor que esta contenga.
+                case 1: ejercicio1(); break;
+                case 2: ejercicio2(); break;
+                case 3: ejercicio3(); break;
+                case 4: ejercicio4(); break;
+                case 5: ejercicio5(); break;
+                case 6: ejercicio6(); break;
+                case 7: ejercicio7(); break;
+                case 8: ejercicio8(); break;
+                case 9: ejercicio9(); break;
+                case 10: ejercicio10(); break;
+            }
+        } while (op != 0);
+        //while (op != 0); sirve para repetir un bloque de código continuamente hasta que la variable op sea igual a cero. Se lee literalmente como "mientras la opción sea diferente de cero".
+    }
+
+
+    // EJERCICIO 1. Saludo
+//Escribir un programa que pregunte al usuario su nombre y luego lo salude.
+
+    static void ejercicio1() {
+        System.out.print("¿Cual es tu nombre camarada? ");
+        String nombre = sc.nextLine();
+        System.out.println("Holiwis, " + nombre + "! Mucho gusto.");
+    }
+
+
+    // EJERCICIO 2:EJERCICIO 2. Área y perímetro de un rectángulo
+//Calcular el perímetro y el área de un rectángulo dada su base y su altura.
+//órmulas:
+//Perímetro = 2 × (base + altura)
+//Área = base × altura
+
+    static void ejercicio2() {
+        System.out.print("Base: ");
+        double base = sc.nextDouble();
+        System.out.print("Altura: ");
+        double altura = sc.nextDouble();
+        double perimetro = 2 * (base + altura);
+        double area = base * altura;
+        System.out.println("Perimetro: " + perimetro);
+        System.out.println("Area: " + area);
+    }
+
+
+    // EJERCICIO 3: EJERCICIO 3. Hipotenusa de un triángulo rectángulo
+//Dados los catetos de un triángulo rectángulo, calcular su hipotenusa.
+//Fórmula:
+//c = √(a² + b²)
+//Ejemplo:
+//Si a = 3 y b = 4:
+//c = √(3² + 4²) = √(9 + 16) = √25 = 5
+
+    static void ejercicio3() {
+        System.out.print("Cateto a: ");
+        double a = sc.nextDouble();
+        System.out.print("Cateto b: ");
+        double b = sc.nextDouble();
+        double c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));  
+        //Math.pow(a, 2): Eleva la variable  "a" al cuadrado ,Math.pow(b, 2): Eleva la variable "b" al cuadrado
+        //Math.sqrt(...): Calcula la raíz cuadrada de la suma
+        System.out.println("Hipotenusa: " + c);
+    }
+
+    // EJERCICIO 4: EJERCICIO 4. Operaciones matemáticas
+//Dados dos números, mostrar la suma, resta, división y multiplicación de ambos.
+
+    static void ejercicio4() {
+        System.out.print("Numero 1: ");
+        double n1 = sc.nextDouble();
+        System.out.print("Numero 2: ");
+        double n2 = sc.nextDouble();
+        System.out.println("Suma: " + (n1 + n2));
+        System.out.println("Resta: " + (n1 - n2));
+        System.out.println("Multiplicacion: " + (n1 * n2));
+        System.out.println("Division: " + (n1 / n2));
+    }
+
+    // EJERCICIO 5 : Conversión de Fahrenheit a Celsius
+//Escribir un programa que convierta un valor dado en grados Fahrenheit a grados Celsius.
+//Fórmula:
+//C = (F - 32) × 5 / 9
+//Ejemplo:
+//68 grados Fahrenheit son equivalentes a 20 grados Celsius
+
+    static void ejercicio5() {
+        System.out.print("Grados Fahrenheit: ");
+        double f = sc.nextDouble();
+        double c = (f - 32) * 5 / 9;
+        System.out.println(f + " F son " + c + " C");
+    }
+
+    // EJERCICIO 6 : EJERCICIO 6. Media de tres números
+//Escribir un programa que solicite tres números por teclado y calcule la media de los tres.
+
+    static void ejercicio6() {
+        System.out.print("Numero 1: ");
+        double n1 = sc.nextDouble();
+        System.out.print("Numero 2: ");
+        double n2 = sc.nextDouble();
+        System.out.print("Numero 3: ");
+        double n3 = sc.nextDouble();
+        double media = (n1 + n2 + n3) / 3;
+        System.out.println("Media: " + media);
+    }
+
+    // EJERCICIO 7:EJERCICIO 7. Conversión de minutos a horas
+//Realizar un programa que reciba una cantidad de minutos y muestre por pantalla a cuántas horas y minutos corresponde.
+//Ejemplo:
+//1000 minutos son equivalentes a 16 horas y 40 minutos.
+
+    static void ejercicio7() {
+        System.out.print("Cantidad de minutos: ");
+        int total = sc.nextInt();
+        int horas = total / 60;
+        int minutos = total % 60;
+        System.out.println(total + " minutos son " + horas + " horas y " + minutos + " minutos");
+    }
+
+    // EJERCICIO 8:EJERCICIO 8. Sueldo y comisión
+//Un vendedor recibe un sueldo base más un 10% de comisión por sus ventas.
+//El vendedor desea saber:
+// Cuánto dinero obtendrá por concepto de comisiones por las tres ventas que realiza en el mes.
+// Cuánto recibirá en total durante el mes, considerando su sueldo base y las comisiones.
+
+    static void ejercicio8() {
+        System.out.print("Sueldo base: ");
+        double base = sc.nextDouble();
+        System.out.print("Venta 1: ");
+        double v1 = sc.nextDouble();
+        System.out.print("Venta 2: ");
+        double v2 = sc.nextDouble();
+        System.out.print("Venta 3: ");
+        double v3 = sc.nextDouble();
+        double totalVentas = v1 + v2 + v3;
+        double comision = totalVentas * 0.10;
+        double total = base + comision;
+        System.out.println("Comision: $" + comision);
+        System.out.println("Sueldo total: $" + total);
+    }
+
+
+
+    // EJERCICIO 9 : JERCICIO 9. Descuento en una compra
+//Una tienda ofrece un descuento del 15% sobre el total de una compra.
+//Escribir un programa que permita calcular cuánto deberá pagar finalmente el cliente.
+
+    static void ejercicio9() {
+        System.out.print("Total de la compra: ");
+        double total = sc.nextDouble();
+        double descuento = total * 0.15;
+        double finalPagar = total - descuento;
+        System.out.println("Descuento: $" + descuento);
+        System.out.println("Total a pagar: $" + finalPagar);
+    }
+
+
+
+    
+ // EJERCICIO 10: EJERCICIO 10. Calificación final
+//Un alumno desea saber cuál será su calificación final en la materia de Algoritmos.
+//La calificación final se compone de los siguientes porcentajes:
+//55% del promedio de sus tres calificaciones parciales.
+// 30% de la calificación del examen final.
+// 15% de la calificación de un trabajo final.
+//Escribir un programa que solicite las calificaciones necesarias y calcule la calificación final del alumno
+
+    static void ejercicio10() {
+        System.out.print("Parcial 1: ");
+        double p1 = sc.nextDouble();
+        System.out.print("Parcial 2: ");
+        double p2 = sc.nextDouble();
+        System.out.print("Parcial 3: ");
+        double p3 = sc.nextDouble();
+        System.out.print("Examen final: ");
+        double ex = sc.nextDouble();
+        System.out.print("Trabajo final: ");
+        double tr = sc.nextDouble();
+        double promedio = (p1 + p2 + p3) / 3;
+        double finalNota = (promedio * 0.55) + (ex * 0.30) + (tr * 0.15);
+        System.out.println("Calificacion final: " + finalNota);
+    }
+}
